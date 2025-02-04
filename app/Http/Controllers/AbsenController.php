@@ -14,8 +14,12 @@ class AbsenController extends Controller
     // Halaman utama siswa
     public function index()
     {
+        $absensi = Absensi::where('user_id', Auth::id())
+            ->whereDate('tanggal_absen', Carbon::today())
+            ->orderBy('jam_masuk', 'desc')
+            ->get();
         $users = User::all();
-        return view('siswa.absen.index', compact('users'));
+        return view('siswa.absen.index', compact('absensi', 'users',));
     }
 
     public function create()
@@ -34,7 +38,7 @@ class AbsenController extends Controller
         // ]);
         // Get the current time
         $currentTime = Carbon::now('Asia/Jakarta');
-        
+
         // untuk mengecek apakah user ditemukan
         $users = User::find($request->user_id);
         if (!$users) {

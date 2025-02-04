@@ -44,4 +44,49 @@
         </div>
     </div>
 </div>
+<div class="container mt-5">
+    <!-- Header Section -->
+    <div class="text-center mb-4">
+        <h3 class="font-weight-bold">Rekap Absensi Siswa</h3>
+    </div>
+
+    <!-- Tabel Ujian -->
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Absensi</h5>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped mb-0">
+                <thead class="bg-dark text-white">
+                    <tr class="text-center">
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Tanggal</th>
+                        <th>Jam Absen</th>
+                        <th>Catatan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($absensi as $data)
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $data->user->username }}</td>
+                            <td class="text-center">{{ \Carbon\Carbon::parse($data->tanggal_absen)->format('d-m-Y') }}</td>
+                            <td class="text-center">
+                                @if ($data->status === 'sakit')
+                                    Sakit
+                                @else
+                                    {{ $data->jam_masuk ?? 'Belum Absen Masuk' }}
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                {{ $data->note ?? '-' }}
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 @endsection
