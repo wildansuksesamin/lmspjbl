@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2025 at 06:17 AM
+-- Generation Time: Feb 04, 2025 at 02:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `lms`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `absensi`
+--
+
+CREATE TABLE `absensi` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `tanggal_absen` date NOT NULL,
+  `jam_masuk` time NOT NULL,
+  `status` varchar(500) NOT NULL DEFAULT 'Hadir',
+  `note` varchar(500) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -572,7 +589,11 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('lvGv6jRivsaTmqAaOeIVvWeTRxFp6XoTxJurx2DJ', 205, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiT0JJczQybUtXOFNlRktzVUdyS0dXSU0yeFhiSnFvWWJnamtCVFJYTiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zaXN3YS91amlhbi8xMiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIwNTt9', 1738212134);
+('AheTAN0pBkrWNPzaEAVOOS4YWJnhhikI27WQQD1V', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMklONGt6bFdRSDZ2RDRjaVNYMkhiOURHMk5MdUtITkQ0dGFqbE81NCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ob21lX3BhZ2UiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1738657905),
+('fmude3hpiQXRJxMIa8X0ZBDK1zIRdfjJedti1dPu', 205, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVER6RHpEZnBXZmphb2NENzNVQjNvMnFnMmZqdHY3N2ZKbjdTY1BOMyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNDoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL3Npc3dhL21hdGVyaSI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMzOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvc2lzd2EvaW5kZXgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyMDU7fQ==', 1738662699),
+('Hu00BbTaXmNIaqROQD54WBMgWdruOYwsI1Bnx5r6', 205, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVU5rNGxIdE1oZFY2a0VlWmg2OXVQYkxsdTN0dTdWNzB4RFJFbm9JaiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zaXN3YS9pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIwNTt9', 1738663794),
+('sY4EGtLeIsPeNAne20nPurY2EGW9fmlAfWRzV9lo', 205, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMjlia2IzRU1SdWt2M0g5REVvRzRuUVZkOURseGVxdjd0VzFGcjU5WiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zaXN3YS9pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIwNTt9', 1738659438),
+('UfxhWeVYpz09VCKMDqFTCnscDbsmOJbGfJlCaGUQ', 205, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTzJGYVhTbnIxMVB2SEJiSnB3UkVHQXNVcWE0NDN6TjlEeXBOMzZhbCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zaXN3YS9hYnNlbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIwNTt9', 1738675325);
 
 -- --------------------------------------------------------
 
@@ -727,7 +748,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `foto`, `kelas_id`, 
 (1, 'admin', 'admin@example.com', '$2y$12$ubduCaHOlp9ZlI9YhA3mXu.6HRgjL1HlynnaWWHdbOMMQ8ygWczOu', 'images/admin_photos/1733928658_Mahwa.jpeg', 0, 'admin', '2024-10-05 01:33:43', '2025-01-29 05:05:03'),
 (195, 'Purwani, S.Pd.', 'anugrah@gmail.com', '$2y$12$ErrC7I.Y1ZZYmP5p3.1cw.UA5.Yf0zaFNQXY7.VFKAxfHHiuNKgoO', '1732110431_nice.jpg', 0, 'guru', '2024-10-10 06:28:29', '2025-01-29 05:06:33'),
 (196, 'Sri Dwiatmining E., S.Pd.', NULL, '$2y$10$/zNljPdECyY1CBTY2RBAreelAagiN5razjTVvp/Pg8MnAhk0seeGe', '1733412409_Mahwa.jpeg', 0, 'guru', '2024-10-10 06:28:30', '2024-12-05 08:26:49'),
-(205, 'PELANGI AYUSHITA', NULL, '$2y$12$mObK3Ru/N3.Tj58Nk./rm.gmFyUKIYgCKBtqKY1g4PtZN3VK3hfd6', NULL, 2, 'siswa', '2024-11-06 08:10:28', '2024-11-06 08:10:28'),
+(205, 'Pelangi', NULL, '$2y$12$mObK3Ru/N3.Tj58Nk./rm.gmFyUKIYgCKBtqKY1g4PtZN3VK3hfd6', NULL, 2, 'siswa', '2024-11-06 08:10:28', '2024-11-06 08:10:28'),
 (206, 'Pujito, S.Pd.', NULL, '$2y$10$/zNljPdECyY1CBTY2RBAreelAagiN5razjTVvp/Pg8MnAhk0seeGe', NULL, NULL, 'guru', '2024-11-06 08:17:42', '2024-11-06 08:17:42'),
 (207, 'Joko Sugianto S.Pd.', NULL, '$2y$10$/zNljPdECyY1CBTY2RBAreelAagiN5razjTVvp/Pg8MnAhk0seeGe', NULL, NULL, 'guru', '2024-11-06 08:17:43', '2024-11-06 08:17:43'),
 (208, 'Nyanto, S.Pd.', NULL, '$2y$10$/zNljPdECyY1CBTY2RBAreelAagiN5razjTVvp/Pg8MnAhk0seeGe', NULL, NULL, 'guru', '2024-11-06 08:17:43', '2024-11-06 08:17:43'),
@@ -766,6 +787,13 @@ INSERT INTO `videos` (`id`, `judul`, `mapel_id`, `kelas_id`, `file_path`, `link_
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `absensi`
+--
+ALTER TABLE `absensi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `absensi_ibfk_1` (`user_id`);
 
 --
 -- Indexes for table `balasan_pesan`
@@ -997,6 +1025,12 @@ ALTER TABLE `videos`
 --
 
 --
+-- AUTO_INCREMENT for table `absensi`
+--
+ALTER TABLE `absensi`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `balasan_pesan`
 --
 ALTER TABLE `balasan_pesan`
@@ -1030,7 +1064,7 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `guru_mapels`
@@ -1138,7 +1172,7 @@ ALTER TABLE `ujian`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=215;
 
 --
 -- AUTO_INCREMENT for table `videos`
@@ -1149,6 +1183,12 @@ ALTER TABLE `videos`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `absensi`
+--
+ALTER TABLE `absensi`
+  ADD CONSTRAINT `absensi_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `grades`
