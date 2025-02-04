@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\AbsenController;
 use App\Http\Controllers\PelajaranController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PesanController;
@@ -59,6 +60,13 @@ Route::middleware(['auth'])->group(function () {
             return app()->call('App\Http\Controllers\SiswaController@index');
         }, 'siswa');
     })->name('siswa.index');
+
+
+Route::prefix('siswa')->middleware('auth')->group(function () {
+    Route::get('/absen', [AbsenController::class, 'index'])->name('siswa.absen.index');
+    Route::get('/absen/create', [AbsenController::class, 'create'])->name('siswa.absen.create');
+    Route::post('/absen', [AbsenController::class, 'store'])->name('siswa.absen.store');    
+});
 
 
 // =====================================================================================================================================
