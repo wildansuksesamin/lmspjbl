@@ -3,7 +3,7 @@
 @section('konten')
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2 class="text-primary">Menu Manajemen Ujian / Tugas</h2>
+        <h2 class="text-primary">Menu Manajemen Ujian</h2>
         <div>
             <a href="{{ route('guru.manajemen-ujian.index') }}" class="btn btn-warning text-white">
                 <i class="fas fa-arrow-left"></i> Back
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <h5 class="text-info">Daftar Siswa Yang Melaksanakan Ujian <strong>Ujian Nasional 2023</strong></h5>
+    <h5 class="text-info">Daftar Siswa Yang Melaksanakan Ujian</h5>
 
     <table class="table table-bordered table-hover">
         <thead class="bg-light">
