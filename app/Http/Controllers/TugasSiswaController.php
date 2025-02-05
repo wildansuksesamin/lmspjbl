@@ -233,7 +233,7 @@ class TugasSiswaController extends Controller
         ]);
 
         // Simpan file tugas ke penyimpanan
-        $file = $request->file('file_pengumpulan')->store('tugas_pengumpulan');
+        $file = $request->file('file_pengumpulan')->store('tugas_pengumpulan', 'public');
 
         // Simpan data ke database
         PengumpulanTugas::create([
@@ -273,7 +273,7 @@ class TugasSiswaController extends Controller
             }
 
             // Simpan file baru
-            $file = $request->file('file_tugas')->store('tugas_pengumpulan');
+            $file = $request->file('file_tugas')->store('tugas_pengumpulan', 'public');
             $pengumpulan->file_tugas = $file;
         }
 
