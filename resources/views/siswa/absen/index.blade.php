@@ -33,7 +33,7 @@
                     <select name="user_id" class="form-control" required>
                         <option selected disabled>-- Pilih Nama --</option>
                         @foreach ($users as $item)
-                        <option value="{{ $item->id }}">{{ $item->nama_pegawai }}</option>
+                        <option value="{{ $item->id }}">{{ $item->username }}</option>
                         @endforeach
                     </select>
                 </div> --}}
@@ -63,6 +63,7 @@
                         <th>Nama</th>
                         <th>Tanggal</th>
                         <th>Jam Absen</th>
+                        <th>Status</th>
                         <th>Catatan</th>
                     </tr>
                 </thead>
@@ -78,6 +79,9 @@
                                 @else
                                     {{ $data->jam_masuk ?? 'Belum Absen Masuk' }}
                                 @endif
+                            </td>
+                            <td class="text-center">
+                                {{ $data->status }}
                             </td>
                             <td class="text-center">
                                 {{ $data->note ?? '-' }}

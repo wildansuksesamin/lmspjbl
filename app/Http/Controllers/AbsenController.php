@@ -15,8 +15,7 @@ class AbsenController extends Controller
     public function index()
     {
         $absensi = Absensi::where('user_id', Auth::id())
-            ->whereDate('tanggal_absen', Carbon::today())
-            ->orderBy('jam_masuk', 'desc')
+            ->orderBy('tanggal_absen', 'desc')
             ->get();
         $users = User::all();
         return view('siswa.absen.index', compact('absensi', 'users',));
