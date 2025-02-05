@@ -65,7 +65,7 @@
 
             <!-- Tabel Pengumpulan Tugas -->
             <div class="mt-5">
-                <h4 class="text-primary text-center"><i class="fas fa-list mr-2"></i> Tabel Pengumpulan Tugas</h4>
+                <h4 class="text-primary text-center"><i class="fas fa-list mr-2"></i>Tabel Pengumpulan Tugas</h4>
                 <!-- Tambahkan table-responsive di sini -->
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped mt-4">

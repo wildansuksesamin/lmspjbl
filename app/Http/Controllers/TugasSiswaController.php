@@ -211,8 +211,9 @@ class TugasSiswaController extends Controller
 
     public function show($id)
     {
+        
         $tugas = Tugas::with('mapel', 'guru', 'kelas')->findOrFail($id);
-        $pengumpulanTugas = PengumpulanTugas::with('siswa')->where('tugas_id', $id)->get();
+        $pengumpulanTugas = PengumpulanTugas::with('siswa')->where('tugas_id', $id)->where('siswa_id', auth()->id())->get();
 
         return view('siswa.tugas.show', compact('tugas', 'pengumpulanTugas'));
     }
