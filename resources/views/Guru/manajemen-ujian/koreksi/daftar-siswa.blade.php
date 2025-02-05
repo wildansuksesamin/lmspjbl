@@ -31,7 +31,6 @@
                 <th>Nilai PG</th>
                 <th>Nilai Essay</th>
                 <th>Jumlah</th>
-                <th>Reset</th>
             </tr>
         </thead>
         <tbody>
@@ -64,14 +63,9 @@
 
                     <td>
                         @php
-                            $total_nilai = ($siswa->nilai_pg ?? 0) + ($siswa->total_nilai_essay ?? 0);
+                            $total_nilai = (($siswa->nilai_pg ?? 0) + ($siswa->total_nilai_essay ?? 0)) / 2;
                         @endphp
                         <span class="badge bg-light">{{ $total_nilai }}</span>
-                    </td>
-                    <td>
-                        <button class="btn btn-danger btn-sm">
-                            <i class="fas fa-undo"></i> Reset
-                        </button>
                     </td>
                 </tr>
             @endforeach
@@ -81,7 +75,6 @@
     <div class="alert alert-info mt-3">
         <p><strong>Catatan:</strong></p>
         <ul>
-            <li>Pilih aksi reset jika ingin mereset siswa yang telah mengikuti ujian.</li>
             <li>Hanya jawaban soal Essay yang bisa dikoreksi.</li>
             <li>Penilaian soal pilihan ganda otomatis oleh sistem.</li>
         </ul>
