@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Siswa;
 use App\Models\JawabanSiswaEssay;
 use App\Models\Ujian;
 use App\Models\HasilUjian;
@@ -13,6 +13,7 @@ class KoreksiEssayController extends Controller
     // Menampilkan halaman koreksi
     public function showKoreksi($ujian_id, $siswa_id)
 {
+    $siswa = Siswa::with('user.kelas')->findOrFail($siswa_id);
     $ujian = Ujian::with([
         'user.kelas', // Memuat data user dan kelas siswa dari tabel users
         'essay',
@@ -21,7 +22,7 @@ class KoreksiEssayController extends Controller
         }
     ])->findOrFail($ujian_id);
 
-    return view('guru.manajemen-ujian.koreksi.koreksi_essay', compact('ujian'));
+    return view('guru.manajemen-ujian.koreksi.koreksi_essay', compact('ujian', 'siswa'));
 }
 
 
