@@ -29,11 +29,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="nis" class="form-label">NIS</label>
-                    <input type="text" name="nis" id="nis" class="form-control" value="{{ $siswa->nis }}" readonly>
+                    <input type="text" name="nis" id="nis" class="form-control" value="{{ $siswa->nis ?? 'Belum Di Input'}}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="nisn" class="form-label">NISN</label>
-                    <input type="text" name="nisn" id="nisn" class="form-control" value="{{ $siswa->nisn }}" readonly>
+                    <input type="text" name="nisn" id="nisn" class="form-control" value="{{ $siswa->nisn ?? 'Belum Di Input'}}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -42,11 +42,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="alamat" class="form-label">Alamat</label>
-                    <textarea name="alamat" id="alamat" class="form-control" rows="3" required>{{ $siswa->alamat }}</textarea>
+                    <textarea name="alamat" id="alamat" class="form-control" rows="3" required>{{ $siswa->alamat ?? 'Belum Di Input'}}</textarea>
                 </div>
                 <div class="mb-3">
                     <label for="telepon" class="form-label">Telepon</label>
-                    <input type="text" name="telepon" id="telepon" class="form-control" value="{{ $siswa->telepon }}" required>
+                    <input type="text" name="telepon" id="telepon" class="form-control" value="{{ $siswa->telepon ?? 'Belum Di Input'}}" required>
                 </div>
                 <div class="form-group">
                     <label for="foto">Foto Profil</label>

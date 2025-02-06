@@ -36,7 +36,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <span><i class="bi bi-person-fill me-2 text-primary"></i><strong>Nama:</strong></span>
-                    <span>{{ $user->username }}</span>
+                    <span>{{ $user->username}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <span><i class="bi bi-person-fill me-2 text-primary"></i><strong>Email:</strong></span>
@@ -44,19 +44,19 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <span><i class="bi bi-card-text me-2 text-primary"></i><strong>NIS:</strong></span>
-                    <span>{{ $siswa->nis }}</span>
+                    <span>{{ $siswa->nis  ?? 'Belum Di Input'}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <span><i class="bi bi-card-heading me-2 text-primary"></i><strong>NISN:</strong></span>
-                    <span>{{ $siswa->nisn }}</span>
+                    <span>{{ $siswa->nisn ?? 'Belum Di Input'}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <span><i class="bi bi-geo-alt-fill me-2 text-primary"></i><strong>Alamat:</strong></span>
-                    <span>{{ $siswa->alamat }}</span>
+                    <span>{{ $siswa->alamat ?? 'Belum Di Input'}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <span><i class="bi bi-telephone-fill me-2 text-primary"></i><strong>Telepon:</strong></span>
-                    <span>{{ $siswa->telepon }}</span>
+                    <span>{{ $siswa->telepon ?? 'Belum Di Input'}}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <span><i class="bi bi-building me-2 text-primary"></i><strong>Kelas:</strong></span>
@@ -64,7 +64,7 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <span><i class="bi bi-gender-ambiguous me-2 text-primary"></i><strong>Gender:</strong></span>
-                    <span>{{ $siswa->gender }}</span>
+                    <span>{{ $siswa->gender ?? 'Belum Di Input'}}</span>
                 </li>
             </ul>
             <div class="text-center mt-4">
