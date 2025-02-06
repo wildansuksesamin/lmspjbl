@@ -20,7 +20,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('registers.storeRegister') }}" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Input nama -->
@@ -46,25 +46,29 @@
                                     </span>
                                 @enderror
                 </div>
+                <!-- Input Gender -->
+                <div class="mb-4 position-relative">
+                    <label for="gender" class="form-label">{{ __('Gender') }}</label>
+                    <select name="gender" id="gender" class="form-control" required>
+                                        <option value="">Pilih Gender</option>
+                                        <option value="Laki-laki">Laki-laki</option>
+                                        <option value="Perempuan">Perempuan</option>
+                                </select>
 
+                                @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                </div>
                 <!-- Input kelas -->
                 <div class="mb-4 position-relative">
                     <label for="kelas_id" class="form-label">{{ __('Kelas') }}</label>
                     <select name="kelas_id" id="kelas_id" class="form-control" required>
-                                        <option value="">Pilih Kelas</option>
-                                        <option value="1">VII A</option>
-                                        <option value="2">VII B</option>
-                                        <option value="5">VII C</option>
-                                        <option value="6">VII D</option>
-                                        <option value="7">VII E</option>
-                                        <option value="8">VIII A</option>
-                                        <option value="9">VIII B</option>
-                                        <option value="10">VIII C</option>
-                                        <option value="11">VIII D</option>
-                                        <option value="12">VIII E</option>
-                                        <option value="13">IX A</option>
-                                        <option value="14">IX B</option>
-                                        <option value="15">IX C</option>
+                    <option value="">Pilih Kelas</option>
+                                        @foreach ($kelas as $k)
+                                            <option value="{{ $k->id }}">{{ $k->nama_kelas }}</option>
+                                        @endforeach
                                 </select>
 
                                 @error('kelas_id')
@@ -90,6 +94,11 @@
                <div class="mb-4 position-relative">
                     <label for="password-confirm" class="form-label">{{ __('Confirm Password') }}</label>
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                </div>
+                <!-- Input Foto -->
+                <div class="mb-4 position-relative">
+                    <label for="foto" class="form-label">{{ __('Foto') }}</label>
+                    <input id="foto" type="file" class="form-control" name="foto" >
                 </div>
                 <div>
                     <input id="role" type="hidden" name="role" value="siswa">

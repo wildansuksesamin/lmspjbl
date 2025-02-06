@@ -12,7 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Middleware\RoleMiddleware;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\GuruMapelController;
@@ -38,7 +38,8 @@ Route::get('/', function () {
 
 Route::get('/home_page', [LandingController::class, 'home'])->name('homepage');
 Route::get('/login', [LoginController::class, 'Login'])->name('login'); // Menampilkan halaman login
-Route::get('/register', [RegisterController::class, 'register'])->name('register'); // Menampilkan halaman register
+Route::get('/registers', [RegisterController::class, 'index'])->name('registers'); // Menampilkan halaman register
+Route::post('/registers/store', [RegisterController::class, 'storeRegister'])->name('registers.storeRegister');
 
 Route::middleware(['auth'])->group(function () {
     // Route Dashboard Admin

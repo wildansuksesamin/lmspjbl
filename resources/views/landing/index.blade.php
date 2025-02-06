@@ -74,7 +74,7 @@
                     </div>
                     <div class="navbar-nav">
                         <a href="{{ route('login')}}" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Login</a>
-                        <a href="{{ route('register')}}" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Register</a>
+                        <a href="{{ route('registers')}}" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Register</a>
                     </div>
                 </div>
             </nav>
