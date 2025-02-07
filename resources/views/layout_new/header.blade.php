@@ -21,7 +21,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Smp 2 Jekulo Kudus Admin</title>
+    <title>Admin</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('New') }}/vendors/feather/feather.css">
     <link rel="stylesheet" href="{{ asset('New') }}/vendors/ti-icons/css/themify-icons.css">

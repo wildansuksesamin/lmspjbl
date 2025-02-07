@@ -95,11 +95,11 @@ public function updateProfil(Request $request, $id)
         // Kamu bisa mengambil data dari database dan mengirimkannya ke view jika diperlukan
         // Misalnya mengambil jumlah siswa, guru, dll.
         // Contoh data untuk ditampilkan di dashboard
-        $totalSiswa = User::where('role', 'siswa')->count();
-        $totalGuru = User::where('role', 'guru')->count();
+        $totalUser = User::count();
         $totalMataPelajaran = Course::count();
+        $kelas = Kelas::all(); // Mengambil semua kelas
 
-    return view('admin.dashboard', compact('totalSiswa', 'totalGuru', 'totalMataPelajaran'));
+    return view('admin.dashboard', compact('totalUser', 'totalMataPelajaran', 'kelas'));
     }
 
 // ==================================================================================================================
