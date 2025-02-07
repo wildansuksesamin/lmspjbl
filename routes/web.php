@@ -69,7 +69,9 @@ Route::prefix('siswa')->middleware('auth')->group(function () {
     Route::get('/absen/create', [AbsenController::class, 'create'])->name('siswa.absen.create');
     Route::post('/absen', [AbsenController::class, 'store'])->name('siswa.absen.store');    
 });
-
+Route::prefix('guru')->middleware('auth')->group(function () {
+    Route::get('/proyek', [GuruController::class, 'proyek'])->name('guru.proyek');    
+});
 
 // =====================================================================================================================================
 // =====================================================================================================================================

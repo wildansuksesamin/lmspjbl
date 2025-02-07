@@ -36,6 +36,27 @@ class GuruController extends Controller
     return view('guru.index', compact('guruMapels', 'siswa', 'materi'));
 }
 
+public function proyek()
+{
+    // Mengambil ID guru yang sedang login
+    $guruId = auth()->id();
+
+    // Mengambil data kelas dan mapel yang diampu guru dari tabel guru_mapels
+    $guruMapels = GuruMapel::with(['kelas', 'mapel'])
+        ->where('user_id', $guruId)
+        ->get();
+
+    // Mengambil data materi yang di-upload oleh guru yang sedang login
+    $materi = Materi::where('user_id', $guruId)->get();
+
+    // Mengambil data siswa yang berada di kelas yang diajar oleh guru
+    $kelasIds = $guruMapels->pluck('kelas_id'); // Mengambil ID kelas yang diajar oleh guru
+    $siswa = User::whereIn('kelas_id', $kelasIds)
+        ->where('role', 'siswa')
+        ->get();
+
+    return view('guru.proyek', compact('guruMapels', 'siswa', 'materi'));
+}
     // Tampilkan profil guru
     public function show($id)
     {
