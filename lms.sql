@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2025 at 02:38 PM
+-- Generation Time: Feb 07, 2025 at 04:22 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -407,6 +407,25 @@ INSERT INTO `kelas` (`id`, `kode_kelas`, `nama_kelas`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `konten`
+--
+
+CREATE TABLE `konten` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(500) NOT NULL,
+  `mapel_id` bigint(11) UNSIGNED NOT NULL,
+  `kelas_id` int(11) UNSIGNED NOT NULL,
+  `file_path` varchar(500) NOT NULL,
+  `link_youtube` varchar(500) NOT NULL,
+  `video_path` varchar(500) NOT NULL,
+  `user_id` bigint(11) UNSIGNED NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `mapels`
 --
 
@@ -589,11 +608,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('AheTAN0pBkrWNPzaEAVOOS4YWJnhhikI27WQQD1V', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiMklONGt6bFdRSDZ2RDRjaVNYMkhiOURHMk5MdUtITkQ0dGFqbE81NCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9ob21lX3BhZ2UiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1738657905),
-('fmude3hpiQXRJxMIa8X0ZBDK1zIRdfjJedti1dPu', 205, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVER6RHpEZnBXZmphb2NENzNVQjNvMnFnMmZqdHY3N2ZKbjdTY1BOMyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNDoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL3Npc3dhL21hdGVyaSI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMzOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvc2lzd2EvaW5kZXgiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyMDU7fQ==', 1738662699),
-('Hu00BbTaXmNIaqROQD54WBMgWdruOYwsI1Bnx5r6', 205, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVU5rNGxIdE1oZFY2a0VlWmg2OXVQYkxsdTN0dTdWNzB4RFJFbm9JaiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zaXN3YS9pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIwNTt9', 1738663794),
-('sY4EGtLeIsPeNAne20nPurY2EGW9fmlAfWRzV9lo', 205, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiMjlia2IzRU1SdWt2M0g5REVvRzRuUVZkOURseGVxdjd0VzFGcjU5WiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zaXN3YS9pbmRleCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIwNTt9', 1738659438),
-('UfxhWeVYpz09VCKMDqFTCnscDbsmOJbGfJlCaGUQ', 205, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTzJGYVhTbnIxMVB2SEJiSnB3UkVHQXNVcWE0NDN6TjlEeXBOMzZhbCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9zaXN3YS9hYnNlbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjIwNTt9', 1738675325);
+('6GTCx0C2Wa2yGduhL4bWlkf2halVjAILss89X1iC', 195, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoicTN3VTNVbm5YUUtHWU0weGRJOHhLMGNmTzljN1F4dnlrbnlncTBqRyI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNDoiaHR0cDovLzEyNy4wLjAuMTo4MDAwL3Npc3dhL21hdGVyaSI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjMzOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvZ3VydS9rb250ZW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxOTU7fQ==', 1738941566);
 
 -- --------------------------------------------------------
 
@@ -779,10 +794,8 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`id`, `judul`, `mapel_id`, `kelas_id`, `file_path`, `link_youtube`, `created_at`, `updated_at`) VALUES
-(5, 'selamat mengerjakan', 6, 2, NULL, 'https://www.youtube.com/watch?v=512u5G9wKlc', '2024-11-18 08:20:09', '2025-01-30 04:38:42'),
-(14, 'tugas pertamana', 2, 8, 'videos/tuPDk5i6U0OnKWGKeLxiKt9oL246U0Swr7wAVFjU.mp4', NULL, '2024-11-25 07:55:38', '2024-11-25 07:55:38'),
-(15, 'Ujian Bahasa Indonesia', 1, 1, NULL, 'https://www.youtube.com/watch?v=RK-jNrOUd-w', '2024-12-14 08:16:29', '2024-12-14 08:16:29'),
-(16, 'Bebas', 2, 2, 'videos/n3B8Ypu6WcDdhaGYz3YFu6M9M8naIxta5UmJQS4v.mp4', NULL, '2025-01-29 21:33:36', '2025-01-29 21:33:36');
+(17, 'Bebas', 2, 2, NULL, 'https://www.youtube.com/watch?v=qUl5fArIdXg&list=RDNmxFxBiCrL4&index=12', '2025-02-07 07:43:28', '2025-02-07 07:43:28'),
+(18, 'Matematika', 2, 2, NULL, 'https://www.youtube.com/watch?v=qUl5fArIdXg&list=RDNmxFxBiCrL4&index=12', '2025-02-07 07:43:38', '2025-02-07 07:43:38');
 
 --
 -- Indexes for dumped tables
@@ -905,6 +918,15 @@ ALTER TABLE `job_batches`
 ALTER TABLE `kelas`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `kode_kelas` (`kode_kelas`);
+
+--
+-- Indexes for table `konten`
+--
+ALTER TABLE `konten`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD KEY `fk_gurus` (`user_id`),
+  ADD KEY `fk_kelass` (`kelas_id`),
+  ADD KEY `fk_mapels` (`mapel_id`);
 
 --
 -- Indexes for table `mapels`
@@ -1103,6 +1125,12 @@ ALTER TABLE `kelas`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `konten`
+--
+ALTER TABLE `konten`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT for table `mapels`
 --
 ALTER TABLE `mapels`
@@ -1178,7 +1206,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
@@ -1209,6 +1237,14 @@ ALTER TABLE `guru_mapels`
   ADD CONSTRAINT `guru_mapels_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `guru_mapels_ibfk_2` FOREIGN KEY (`mapel_id`) REFERENCES `mapels` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `guru_mapels_ibfk_3` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `konten`
+--
+ALTER TABLE `konten`
+  ADD CONSTRAINT `fk_gurus` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_kelass` FOREIGN KEY (`kelas_id`) REFERENCES `kelas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_mapels` FOREIGN KEY (`mapel_id`) REFERENCES `mapels` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `materi`

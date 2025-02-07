@@ -49,9 +49,8 @@
         <div class="col-md-3 ">
             <div class="card text-center shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title text-warning" style="font-size: 20px; font-weight: bold;"><i class="fas fa-file-upload"></i> Konten Belajar</h5>
-                    <br>
-                    <br>
+                    <h5 class="card-title text-warning" style="font-size: 15px; font-weight: bold;"><i class="fas fa-file-upload"></i> Konten Belajar</h5>
+                    <a href="{{ route('guru.konten') }}" class="btn rounded-pill" style="background-color: blue; color: white;">Lihat Konten Belajar</a>
                 </div>
             </div>
         </div>

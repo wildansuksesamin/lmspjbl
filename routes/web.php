@@ -9,6 +9,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\PesanController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KontenController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\Auth\LoginController;
@@ -70,7 +71,8 @@ Route::prefix('siswa')->middleware('auth')->group(function () {
     Route::post('/absen', [AbsenController::class, 'store'])->name('siswa.absen.store');    
 });
 Route::prefix('guru')->middleware('auth')->group(function () {
-    Route::get('/proyek', [GuruController::class, 'proyek'])->name('guru.proyek');    
+    Route::get('/proyek', [GuruController::class, 'proyek'])->name('guru.proyek');
+    Route::get('/konten', [KontenController::class, 'index'])->name('guru.konten');    
 });
 
 // =====================================================================================================================================
