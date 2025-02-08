@@ -89,7 +89,7 @@
                     <div class="col-md-4 mb-4">
                         <p style="height: 356px; width: 294px;">
                             <i class="fas fa-info-circle" style="font-size: 80px; font-weight: bold; position: absolute; top: 30%; width: 100%; text-align: center;"></i>
-                            <i style="position: absolute; top: 55%; width: 100%; text-align: center;">Belum ada konten yang tersedia.</i>
+                            <i style="position: absolute; top: 55%; width: 100%; text-align: center;">Belum ada konten yang tersedia mohon di tambahkan.</i>
                         </p>
                     </div>
                     @endforelse
